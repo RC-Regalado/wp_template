@@ -1,0 +1,44 @@
+/* Estilos para la página de tienda de WooCommerce */
+.woocommerce .products {
+    /* Agrega tus estilos personalizados aquí */
+}
+
+/* Estilos para los botones de WooCommerce */
+.woocommerce button.button {
+    /* Agrega tus estilos personalizados aquí */
+  color: #000;
+}
+
+.wc-block-grid__product {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #000;
+
+}
+
+.wc-block-grid__product .wc-block-grid__product-link {
+  margin-top: auto;
+}
+
+.wc-block-grid__product .price {
+  margin-bottom: 1em;
+}
+
+.wc-block-grid__product .wc-block-grid__product-onsale {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #00ff00;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.wc-block-grid__product .wp-block-button {
+/*  margin-top: auto; */
+}
+
+
