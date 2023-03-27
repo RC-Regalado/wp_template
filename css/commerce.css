@@ -14,8 +14,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #000;
-
+  background: #06B5DC;
+  margin: 0.5em;
 }
 
 .wc-block-grid__product .wc-block-grid__product-link {

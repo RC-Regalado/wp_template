@@ -11,33 +11,5 @@
 </head>
 <body <?php body_class(); ?>>
 	<header id="header" class="jumbotron">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand header-logo" href="/">
-				<img src="<?php echo get_template_directory_uri().'/logo.png'; ?>">
-			</a>
-
-			<div class="collapse navbar-collapse" id="navbarNav">
-	    		<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="/">Inicio</a>
-					</li>
-			    	<li class="nav-item">
-	        			<a class="nav-link" href="#">Productos</a>
-    	  			</li>
-      				<li class="nav-item">
-        				<a class="nav-link" href="#">Servicios</a>
-      				</li>
-	    		</ul>
-
-    			<ul class="navbar-nav ml-auto">
-      				<li class="nav-item">
-       					<a class="nav-link" href="#">Iniciar sesión</a>
-      				</li>
-	      			<li class="nav-item">
-    	    			<a class="nav-link" href="#">Registrarse</a>
-      				</li>
-    			</ul>
-  			</div>
-		</nav>
+		<?php get_template_part('navbar'); ?>
 	</header>
-<div class="container">

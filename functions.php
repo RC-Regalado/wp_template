@@ -1,7 +1,77 @@
 <?php
-function cargar_estilo_personalizado() {
-    wp_enqueue_style( 'estilo-personalizado', get_template_directory_uri() . '/css/commerce.css' );
+// Estilo woocommerce {{{
+function cargar_estilo_personalizado()
+{
+    wp_enqueue_style('estilo-personalizado', get_template_directory_uri() . '/css/commerce.css');
 }
-add_action( 'wp_enqueue_scripts', 'cargar_estilo_personalizado' );
+add_action('wp_enqueue_scripts', 'cargar_estilo_personalizado');
+// }}}
+add_filter('woocommerce_checkout_fields', 'checkout_override');
+function checkout_override($fields)
+{
+    unset($fields['order']['order_comments']);
 
+    return $fields;
+}
+
+// add_filter( 'the_content', 'custom_login' );
+
+function custom_login($content)
+{
+    $logo = get_template_directory_uri().'/logo.png';
+    if (is_page(get_page_by_title('login')->ID)) {
+        $action = isset($_GET['action']) ? $_GET['action'] : '-';
+
+        if (is_user_logged_in()) {
+            return $content;
+        } elseif ($action == 'register') {
+            get_template_part('register.php');
+        } else { ?>
+            <div class ="login-form" >
+            	<img id="rlogo"  src="<?= $logo ?>" alt="" width="75" style="margin: 5px 0 25px 0;" >
+
+<?php
+            wp_login_form(
+            array(
+                    'echo' => true ,
+                    'redirect'       => (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] .'/' ,
+                           'label_username' => __('Nombre de usuario '),
+                           'label_password' => __('Contraseña'),
+                           'label_remember' => __('Recuérdame')
+                )
+        );
+            ?>
+            </div>
+<?php
+        }
+    } else {
+        return $content;
+    }
+}
+
+function custom_register($content)
+{
+    $logo = get_template_directory_uri().'/logo.png';
+    if (is_page(get_page_by_title('register')->ID)) {
+        if (is_user_logged_in()) {
+            return $content;
+        } else {
+            get_template_part('register.php');
+        }
+    } else {
+        return $content;
+    }
+}
+
+
+
+add_action('wp_login_failed', 'my_front_end_login_fail');
+function my_front_end_login_fail($username)
+{
+    $referrer = $_SERVER['HTTP_REFERER'];
+    if (!empty($referrer) && !strstr($referrer, 'wp-login') && !strstr($referrer, 'wp-admin')) {
+        wp_redirect($referrer . '?login=failed');
+        exit;
+    }
+}
 ?>
