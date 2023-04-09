@@ -1,6 +1,18 @@
 /* Body {{{ */
+:root {
+  --blue-green: #39918C;
+  --brown-d: #D0B49F;
+  --brown-a: #AB6B51;
+  --cornflower: #2F435A;
+  --teal-green: #228280;
+  --brown: #523A28;
+  --white: #EDF1F2;
+  --blue-gray: #9DB6CC;
+}
+
 html {
     margin:0!important;
+    height: 100%
 }
 
 body {
@@ -17,10 +29,6 @@ a {
 }
 
 /* }}} */
-
-#sidebar_right {
-    border-left: 1px solid black;
-}
 
 /* NavBar {{{ */
 .header-logo img{
@@ -94,7 +102,7 @@ footer {
     border-top: 1px #a2a2a2 solid;
     text-align: center;
     padding: 40px;
-    background: #0C5594;
+    background: #000946;
 }
 
 footer p {
@@ -120,7 +128,7 @@ footer p {
 
 .right-col {
   flex: 1;
-  background-color: #06B5DC;
+  background-color: var(--cornflower);
   color: #eee;
   padding: 20px;
   display: flex;
@@ -193,7 +201,7 @@ div.login-form {
     transition: 0.2s;
     cursor: pointer;
     padding: 7px 3px;
-    background: #0C5594;
+    background: var(--cornflower);
     border: none;
     width: 100%;
     font-size: 1.1rem;
@@ -276,3 +284,63 @@ div.login-form {
 }
 /* }}} */
 
+/* Checkout {{{ */
+.ch-container {
+  width: 300px;
+  max-width: 90%;
+  padding: 20px;
+  border: 1px solid #ffffff4a;
+  border-radius: 5px; border-radius: 5px;
+  background: #fff;
+  color: #020202;
+  margin: 90px auto;
+}
+
+.checkout form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.checkout label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.checkout 
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.checkout input[type="hidden"] {
+  display: none;
+}
+
+.checkout input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkout input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.checkout div {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* }}} */

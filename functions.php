@@ -16,6 +16,19 @@ function checkout_override($fields)
 
 // add_filter( 'the_content', 'custom_login' );
 
+function styles_loader()
+{
+    wp_enqueue_style('bootstrap', get_template_directory_uri() . "/css/bootstrap.min.css");
+    wp_enqueue_style('fs', get_template_directory_uri() . "/css/font-awesome.min.css");
+    wp_enqueue_style('elegant', get_template_directory_uri() . "/css/elegant-icons.css");
+    wp_enqueue_style('nice', get_template_directory_uri() . "/css/nice-select.css");
+    wp_enqueue_style('jqueryui', get_template_directory_uri() . "/css/jquery-ui.min.css");
+    wp_enqueue_style('slicknav', get_template_directory_uri() . "/css/slicknav.min.css");
+    wp_enqueue_style('style', get_template_directory_uri() . "/style.css");
+}
+
+add_action('wp_enqueue_scripts', 'styles_loader');
+
 function custom_login($content)
 {
     $logo = get_template_directory_uri().'/logo.png';
@@ -33,12 +46,12 @@ function custom_login($content)
 <?php
             wp_login_form(
             array(
-                    'echo' => true ,
-                    'redirect'       => (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] .'/' ,
-                           'label_username' => __('Nombre de usuario '),
-                           'label_password' => __('Contraseña'),
-                           'label_remember' => __('Recuérdame')
-                )
+                        'echo' => true ,
+                        'redirect'       => (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] .'/' ,
+                               'label_username' => __('Nombre de usuario '),
+                               'label_password' => __('Contraseña'),
+                               'label_remember' => __('Recuérdame')
+                    )
         );
             ?>
             </div>

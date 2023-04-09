@@ -1,18 +1,18 @@
 <?php
-	if (isset($_POST['submit'])) {
-		$username = sanitize_user($_POST['username']);
-		$email = sanitize_email($_POST['email']);
-		$password = esc_attr($_POST['password']);
-		$password_confirm = esc_attr($_POST['password_confirm']);
+    if (isset($_POST['submit'])) {
+        $username = sanitize_user($_POST['username']);
+        $email = sanitize_email($_POST['email']);
+        $password = esc_attr($_POST['password']);
+        $password_confirm = esc_attr($_POST['password_confirm']);
 
-		if ($password !== $password_confirm) {
-    	echo 'Passwords do not match.';
-		  return;
-		}
+        if ($password !== $password_confirm) {
+            echo 'Passwords do not match.';
+            return;
+        }
 
-		$user_id = wp_create_user($username, $password, $email);
+        $user_id = wp_create_user($username, $password, $email);
     } else {
-?>
+        ?>
 
 <div class="form-container">
 		<h1>Registrate</h1>
@@ -42,7 +42,7 @@
 		</form>
 </div>
 <?php
-	}
-?>
+    }
+    ?>
 
 

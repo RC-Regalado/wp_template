@@ -1,5 +1,4 @@
 <div class ="login-form" >
-    <img id="rlogo"  src="<?= get_template_directory_uri().'/logo.png' ?>" alt="" width="75" style="margin: 5px 0 25px 0;" >
     <?php
         wp_login_form(
             array(
