@@ -17,7 +17,7 @@
 <div class="form-container">
 		<h1>Registrate</h1>
 
-		<form method="post" action="procesar_registro.php">
+		<form method="post" action="/login?action=register">
 			<label for="nombre_usuario">
 				Nombre de usuario:			
 				<input type="text" id="nombre_usuario" name="nombre_usuario" required>

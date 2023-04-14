@@ -9,8 +9,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #fff;
+  background: var(--columbian-blue);
   margin: 0.5em;
+  padding-top: 1em;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .wc-block-grid__product .wc-block-grid__product-link {

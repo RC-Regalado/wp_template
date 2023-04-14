@@ -46,12 +46,12 @@ function custom_login($content)
 <?php
             wp_login_form(
             array(
-                        'echo' => true ,
-                        'redirect'       => (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] .'/' ,
-                               'label_username' => __('Nombre de usuario '),
-                               'label_password' => __('Contraseña'),
-                               'label_remember' => __('Recuérdame')
-                    )
+                                'echo' => true ,
+                                'redirect'       => (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] .'/' ,
+                                       'label_username' => __('Nombre de usuario '),
+                                       'label_password' => __('Contraseña'),
+                                       'label_remember' => __('Recuérdame')
+                            )
         );
             ?>
             </div>
@@ -87,4 +87,38 @@ function my_front_end_login_fail($username)
         exit;
     }
 }
+
+add_action('pre_get_posts', 'custom_search_filter');
+function custom_search_filter($query)
+{
+    // Chequear si estamos en la página de tienda
+    global $wp;
+    if (isset($wp->request) && $wp->request === 'tienda') {
+        // Obtener el valor de búsqueda del parámetro "s"
+        $search_query = isset($_GET["search"]) ? $_GET['search'] : '';
+        // Si existe el valor de búsqueda
+        if (!empty($search_query)) {
+            // Agregar el filtro para buscar por título y descripción del producto
+            $query->set('meta_query', array(
+                array(
+                    'key' => 'product_name',
+                    'value' => $search_query,
+                    'compare' => 'LIKE'
+                )
+            ));
+
+            $products = $query->get_post();
+
+            if (empty($products)) {
+                $query->set('meta_query', array());
+                echo $query->get_post();
+            }
+        } else {
+            // Si no existe el valor de búsqueda, retornar todos los productos
+            $query->set('posts_per_page', -1);
+        }
+    }
+}
+
+
 ?>
