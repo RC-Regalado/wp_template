@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<?php wp_head(); ?>
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/css/header.css'; ?>">
 </head>
 <body <?php body_class(); ?>>
 	<header id="header" class="jumbotron">

@@ -1,18 +1,24 @@
 <?php
-    if (isset($_POST['submit'])) {
-        $username = sanitize_user($_POST['username']);
-        $email = sanitize_email($_POST['email']);
-        $password = esc_attr($_POST['password']);
-        $password_confirm = esc_attr($_POST['password_confirm']);
+if (isset($_GET['correo'])) {
+    $email = sanitize_email($_GET['correo']);
+    if (email_exists($email)) {
+        echo json_decode(["err" => 1]);
+        return;
+    }
+} elseif (isset($_POST['correo'])) {
+    $username = sanitize_user($_POST['nombre_usuario']);
+    $email = sanitize_email($_POST['correo']);
+    $password = esc_attr($_POST['passwd']);
+    $password_confirm = esc_attr($_POST['passwd_confirm']);
 
-        if ($password !== $password_confirm) {
-            echo 'Passwords do not match.';
-            return;
-        }
+    if ($password !== $password_confirm) {
+        echo 'Passwords do not match.';
+        return;
+    }
 
-        $user_id = wp_create_user($username, $password, $email);
-    } else {
-        ?>
+    $user_id = wp_create_user($username, $password, $email);
+} else {
+    ?>
 
 <div class="form-container">
 		<h1>Registrate</h1>
@@ -28,21 +34,25 @@
 				<input type="email" id="correo" name="correo" required>
 			</label>
 
-			<label for="contraseña">
+			<label for=passwd>
 				Contraseña:
-				<input type="password" id="contraseña" name="contraseña" required>
+				<input type="password" id="passwd" name="passwd" required>
 			</label>
 
-			<label for="validacion_contraseña">
+			<label for="passwd_confirm">
 				Validar contraseña:
-				<input type="password" id="validacion_contraseña" name="validacion_contraseña" required>
+				<input type="password" id="passwd_confirm" name="passwd_confirm" required>
 			</label>
 
 			<input class="submit" type="submit" value="Registrarme">
 		</form>
+
+	<script>
+		
+	</script>
 </div>
 <?php
-    }
-    ?>
+}
+?>
 
 

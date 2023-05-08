@@ -1,7 +1,6 @@
-@charset "UTF-8";
 /* Estilos para los botones de WooCommerce */
 .woocommerce button.button {
-  /* Agrega tus estilos personalizados aquí */
+    /* Agrega tus estilos personalizados aquí */
   color: #000;
 }
 
@@ -20,28 +19,33 @@
   padding-top: 1em;
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-}
-.wc-block-grid__product .wc-block-grid__product-link {
-  margin-top: auto;
-}
-.wc-block-grid__product .price {
-  margin-bottom: 1em;
-}
-.wc-block-grid__product .wc-block-grid__product-onsale {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #00ff00;
-  color: #fff;
-  padding: 6px 10px;
-  font-size: 14px;
-  line-height: 1;
-}
-.wc-block-grid__product .wp-block-button {
+  .wc-block-grid__product-link {
+    margin-top: auto;
+  }
+
+  .price {
+    margin-bottom: 1em;
+  }
+  .wc-block-grid__product-onsale {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #00ff00;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .wp-block-button {
   /*  margin-top: auto; */
-}
-.wc-block-grid__product .wc-block-grid__product-image img {
-  max-height: 300px;
+  }
+
+  .wc-block-grid__product-image {
+    img {
+      max-height: 300px;
+    }
+  }
 }
 
 .products .product {
@@ -58,9 +62,8 @@
 
 .woocommerce-product-gallery__image {
   max-height: 536px;
+  
+  img {
+    height: calc(100%);
+  }
 }
-.woocommerce-product-gallery__image img {
-  height: 100%;
-}
-
-/*# sourceMappingURL=commerce.css.map */

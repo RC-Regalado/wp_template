@@ -1,3 +1,4 @@
 *.vim
 *.cache
-style.css*
+css/*.css
+css/*.map

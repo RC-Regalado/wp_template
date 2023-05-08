@@ -6,7 +6,7 @@
 <header class="header">
   <div class="header__top">
     <div class="container">
-      <div class="row">
+      <div class="row navbar-top">
         <div class="col-lg-6 col-md-6">
           <div class="header__top__left"></div>
         </div>
@@ -24,6 +24,21 @@
             <div class="header__top__right__auth">
               <a href="/login"><i class="fa fa-user"></i> Login</a>
             </div>
+            <?php } else { ?>
+            <div class="header__top__right__auth">
+              <?php 
+                global $current_user;
+                wp_get_current_user();
+ 
+                if (current_user_can( 'manage_woocommerce' )){
+                  echo '<a href="/wp-admin"><i class="fa fa-user"></i>';
+                } else {
+                  echo '<a href="/mi-cuenta"><i class="fa fa-user"></i>';
+                }
+                echo $current_user->user_login;
+              ?>
+              </a>
+            </div>
             <?php } ?>
           </div>
         </div>
@@ -33,7 +48,9 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">
+      <img src="<?php echo get_template_directory_uri() . '/logo.png' ?>"/>
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -56,17 +73,7 @@
             <a class="nav-link" href="/tienda">Tienda</a>
           </li>
         </ul>
-        <form class="d-flex" role="search" action="/tienda">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Buscar"
-            aria-label="Buscar"
-            name="search"
-          />
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-        <li class="nav-item">
+       <li class="nav-item">
             <div class="header__cart">
               <ul>
                 <li>
