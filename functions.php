@@ -42,38 +42,4 @@ function styles_loader()
 
 add_action('wp_enqueue_scripts', 'styles_loader');
 
-
-add_action('pre_get_posts', 'custom_search_filter');
-function custom_search_filter($query)
-{
-    global $wp;
-    if (isset($wp->request) && $wp->request === 'tienda') {
-        $search_query = isset($_GET["search"]) ? $_GET['search'] : '';
-        if (!empty($search_query)) {
-            print_r($search_query);
-
-            $products = get_post( array (
-                'post_type' => 'product',
-                'meta_query' => array(
-                    array(
-                        'key' => 'post_title',
-                        'value' => $search_query,
-                        'compare' => 'LIKE',
-                    )
-                ),
-            ) );
-
-            // print_r($products);
-
-            if (empty($products)) {
-                $query->set('meta_query', array());
-                echo $query->get_post();
-            }
-        } else {
-            $query->set('meta_query', array());
-            echo get_post();
-        }
-    }
-}
-
 ?>
