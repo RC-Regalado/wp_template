@@ -1,6 +1,7 @@
 /* Estilos para los botones de WooCommerce */
+/* Main page {{{ */
 .woocommerce button.button {
-    /* Agrega tus estilos personalizados aquí */
+  /* Agrega tus estilos personalizados aquí */
   color: #000;
 }
 
@@ -38,7 +39,7 @@
   }
 
   .wp-block-button {
-  /*  margin-top: auto; */
+    /*  margin-top: auto; */
   }
 
   .wc-block-grid__product-image {
@@ -62,8 +63,40 @@
 
 .woocommerce-product-gallery__image {
   max-height: 536px;
-  
+
   img {
     height: calc(100%);
   }
 }
+/* }}} */
+
+/* Vistas {{{ */
+
+.views-main {
+  margin-top: 35px;
+
+  .product-card {
+    padding-top: 0.5em;
+
+    .image-container {
+      height: 300px;
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .image-container img {
+      height: 300px;
+    }
+
+    .bg-image {
+      height: 100%;
+      width: auto;
+    }
+
+    .buttons {
+      text-align: center;
+    }
+  }
+}
+
+/* }}} */

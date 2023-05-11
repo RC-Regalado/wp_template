@@ -33,9 +33,9 @@ function checkout_override($fields)
 
 function styles_loader()
 {
-    wp_enqueue_style('bootstrap', get_template_directory_uri() . "/lib/bootstrap.min.css");
-    wp_enqueue_style('fs', get_template_directory_uri() . "/lib/font-awesome.min.css");
-    wp_enqueue_style('elegant', get_template_directory_uri() . "/lib/elegant-icons.css");
+    wp_enqueue_style('bootstrap', get_template_directory_uri() . "/css/lib/bootstrap.min.css");
+    wp_enqueue_style('fs', get_template_directory_uri() . "/css/lib/font-awesome.min.css");
+    wp_enqueue_style('elegant', get_template_directory_uri() . "css//lib/elegant-icons.css");
     wp_enqueue_style('style', get_template_directory_uri() . "/css/style.css");
     wp_enqueue_style('header', get_template_directory_uri() . "/css/header.css");
 }
