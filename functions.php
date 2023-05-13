@@ -10,6 +10,7 @@ add_filter('woocommerce_checkout_fields', 'checkout_override');
 function checkout_override($fields)
 {
     unset($fields['order']['order_comments']);
+    unset($fields['billing']['billing_last_name']);
     unset($fields['billing']['billing_postcode']);
     unset($fields['billing']['billing_address_2']);
 
@@ -35,7 +36,7 @@ function styles_loader()
 {
     wp_enqueue_style('bootstrap', get_template_directory_uri() . "/css/lib/bootstrap.min.css");
     wp_enqueue_style('fs', get_template_directory_uri() . "/css/lib/font-awesome.min.css");
-    wp_enqueue_style('elegant', get_template_directory_uri() . "css//lib/elegant-icons.css");
+    wp_enqueue_style('elegant', get_template_directory_uri() . "/css/lib/elegant-icons.css");
     wp_enqueue_style('style', get_template_directory_uri() . "/css/style.css");
     wp_enqueue_style('header', get_template_directory_uri() . "/css/header.css");
 }
