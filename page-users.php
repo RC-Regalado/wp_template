@@ -13,9 +13,9 @@ get_header();
             $action = isset($_GET['action']) ? $_GET['action'] : '-';
 
             if ($action == 'register'){
-                get_template_part('user' ,'register');
+                get_template_part('users/user' ,'register');
             } else { 
-                get_template_part('user', 'login');
+                get_template_part('users/user', 'login');
             }
     ?>
     </div>
