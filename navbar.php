@@ -12,17 +12,12 @@
         </div>
         <div class="col-lg-6 col-md-6">
           <div class="header__top__right">
-            <div class="header__top__right__language">
-              <div>Español</div>
-              <span class="arrow_carrot-down"></span>
-              <ul>
-                <li><a href="#">Español</a></li>
-                <li><a href="#">English</a></li>
-              </ul>
-            </div>
             <?php if (!is_user_logged_in()) { ?>
+            <div class="header__top__right__language">
+              <a href="/login"> Ingresa o</a>
+            </div>
             <div class="header__top__right__auth">
-              <a href="/login"><i class="fa fa-user"></i> Login</a>
+              <a href="/register">Registrate</a>
             </div>
             <?php } else { ?>
             <div class="header__top__right__auth">

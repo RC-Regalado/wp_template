@@ -34,6 +34,9 @@ a {
   text-decoration: none;
 }
 
+.woocommerce-additional-fields h3 {
+  display: none;
+}
 /* }}} */
 
 /* NavBar {{{ */
@@ -423,4 +426,15 @@ textarea {
 .checkout-button {
   background-color: var(--cornflower) !important;
 }
+
+/* Alinea el icono a la izquierda y el label a la derecha */
+.custom-radio-field label {
+    display: flex;
+    align-items: center;
+}
+
+.custom-radio-field label::before {
+    margin-right: 5px;
+}
+
 /* }}} */

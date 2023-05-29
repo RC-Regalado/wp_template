@@ -1,4 +1,5 @@
 <?php
+
 // Estilo woocommerce {{{
 function cargar_estilo_personalizado()
 {
@@ -6,6 +7,8 @@ function cargar_estilo_personalizado()
 }
 add_action('wp_enqueue_scripts', 'cargar_estilo_personalizado');
 // }}}
+
+// Checkout {{{
 add_filter('woocommerce_checkout_fields', 'checkout_override');
 function checkout_override($fields)
 {
@@ -23,14 +26,49 @@ function checkout_override($fields)
     $fields['billing']['billing_dui'] = array(
         'type'        => 'text',
         'class'       => array( 'form-row-wide' ),
-        'label'       => __( 'DUI', 'woocommerce' ),
-        'placeholder' => __( 'Ingresa tu número de DUI', 'woocommerce' ),
+        'label'       => __('Documento', 'woocommerce'),
+        'placeholder' => __('Ingresa tu número de documento de identidad', 'woocommerce'),
         'required'    => true,
         'clear'       => true,
     );
 
     return $fields;
 }
+
+add_action('woocommerce_after_order_notes', 'custom_checkout_radio_buttons');
+function custom_checkout_radio_buttons($checkout)
+{
+    echo '<div id="custom_checkout_radio_buttons"><h2>' . __('Tipo de factura', 'woocommerce') . '</h2>';
+
+    woocommerce_form_field('radio_button_field', array(
+        'type' => 'radio',
+        'class' => array('form-row-wide', 'custom-radio-field'),
+        'options' => array(
+            'consumidor_final' => __('Consumidor final', 'woocommerce'),
+            'credito_fiscal' => __('Crédito fiscal', 'woocommerce')
+        ),
+        'default' => 'consumidor_final',
+    ), $checkout->get_value('radio_button_field'));
+
+    echo '</div>';
+}
+
+add_action('woocommerce_checkout_process', 'custom_checkout_radio_buttons_validation');
+function custom_checkout_radio_buttons_validation()
+{
+    if (empty($_POST['radio_button_field'])) {
+        wc_add_notice(__('Por favor, selecciona una opción.', 'woocommerce'), 'error');
+    }
+}
+
+add_action('woocommerce_checkout_update_order_meta', 'custom_checkout_radio_buttons_update_order_meta');
+function custom_checkout_radio_buttons_update_order_meta($order_id)
+{
+    if ($_POST['radio_button_field']) {
+        update_post_meta($order_id, 'bill_type', sanitize_text_field($_POST['radio_button_field']));
+    }
+}
+// }}}
 
 function styles_loader()
 {
@@ -42,5 +80,3 @@ function styles_loader()
 }
 
 add_action('wp_enqueue_scripts', 'styles_loader');
-
-?>

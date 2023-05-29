@@ -1,0 +1,435 @@
+<form
+  name="checkout"
+  method="post"
+  class="checkout woocommerce-checkout"
+  action="http://192.168.100.4:5551/finalizar-compra/"
+  enctype="multipart/form-data"
+  novalidate="novalidate"
+>
+  <div class="col2-set" id="customer_details">
+    <div class="col-1">
+      <div class="woocommerce-billing-fields">
+        <h3>Detalles de facturación</h3>
+
+        <div class="woocommerce-billing-fields__field-wrapper">
+          <p
+            class="form-row form-row-first validate-required"
+            id="billing_first_name_field"
+            data-priority="10"
+          >
+            <label for="billing_first_name" class=""
+              >Nombre&nbsp;<abbr class="required" title="obligatorio"
+                >*</abbr
+              ></label
+            ><span class="woocommerce-input-wrapper"
+              ><input
+                type="text"
+                class="input-text"
+                name="billing_first_name"
+                id="billing_first_name"
+                placeholder=""
+                value="Ruben"
+                autocomplete="given-name"
+            /></span>
+          </p>
+          <p
+            class="form-row form-row-wide"
+            id="billing_company_field"
+            data-priority="30"
+          >
+            <label for="billing_company" class=""
+              >Nombre de la empresa&nbsp;<span class="optional"
+                >(opcional)</span
+              ></label
+            ><span class="woocommerce-input-wrapper"
+              ><input
+                type="text"
+                class="input-text"
+                name="billing_company"
+                id="billing_company"
+                placeholder=""
+                value=""
+                autocomplete="organization"
+            /></span>
+          </p>
+          <p
+            class="form-row form-row-wide address-field update_totals_on_change validate-required"
+            id="billing_country_field"
+            data-priority="40"
+          >
+            <label for="billing_country" class=""
+              >País / Región&nbsp;<abbr class="required" title="obligatorio"
+                >*</abbr
+              ></label
+            ><span class="woocommerce-input-wrapper"
+              ><select
+                name="billing_country"
+                id="billing_country"
+                class="country_to_state country_select select2-hidden-accessible"
+                autocomplete="country"
+                data-placeholder="Selecciona un país/región…"
+                data-label="País / Región"
+                tabindex="-1"
+                aria-hidden="true"
+              >
+                <option value="">Selecciona un país/región…</option></select><span
+                class="select2 select2-container select2-container--default"
+                dir="ltr"
+                style="width: 100%"
+                ><span class="selection"
+                  ><span
+                    class="select2-selection select2-selection--single"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    tabindex="0"
+                    aria-label="País / Región"
+                    role="combobox"
+                    ><span
+                      class="select2-selection__rendered"
+                      id="select2-billing_country-container"
+                      role="textbox"
+                      aria-readonly="true"
+                      title="El Salvador"
+                      >El Salvador</span
+                    ><span class="select2-selection__arrow" role="presentation"
+                      ><b role="presentation"></b></span></span></span
+                ><span class="dropdown-wrapper" aria-hidden="true"></span></span
+              ><noscript
+                ><button
+                  type="submit"
+                  name="woocommerce_checkout_update_totals"
+                  value="Actualizar país/región"
+                >
+                  Actualizar país/región
+                </button></noscript
+              ></span
+            >
+          </p>
+          <p
+            class="form-row address-field validate-required form-row-wide"
+            id="billing_address_1_field"
+            data-priority="50"
+          >
+            <label for="billing_address_1" class=""
+              >Dirección de la calle&nbsp;<abbr
+                class="required"
+                title="obligatorio"
+                >*</abbr
+              ></label
+            ><span class="woocommerce-input-wrapper"
+              ><input
+                type="text"
+                class="input-text"
+                name="billing_address_1"
+                id="billing_address_1"
+                placeholder="Número de la casa y nombre de la calle"
+                value="Colonia San José Lotificacion loma Linda"
+                autocomplete="address-line1"
+                data-placeholder="Número de la casa y nombre de la calle"
+            /></span>
+          </p>
+          <p
+            class="form-row address-field validate-required validate-state form-row-wide"
+            id="billing_state_field"
+            data-priority="80"
+            data-o_class="form-row form-row-wide address-field validate-required validate-state"
+          >
+            <label for="billing_state" class=""
+              >Departamento&nbsp;<abbr class="required" title="obligatorio"
+                >*</abbr
+              ></label
+            ><span class="woocommerce-input-wrapper"
+              ><select
+                name="billing_state"
+                id="billing_state"
+                class="state_select select2-hidden-accessible"
+                autocomplete="address-level1"
+                data-placeholder="Elige una opción…"
+                data-input-classes=""
+                data-label="Departamento"
+                tabindex="-1"
+                aria-hidden="true"
+              >
+                <option value="">Elige una opción…</option>
+                <option value="SV-AH">Ahuachapán</option>
+                <option value="SV-CA">Cabañas</option>
+                <option value="SV-CH">Chalatenango</option>
+                <option value="SV-CU">Cuscatlán</option>
+                <option value="SV-LI">La Libertad</option>
+                <option value="SV-MO">Morazán</option>
+                <option value="SV-PA">La Paz</option>
+                <option value="SV-SA">Santa Ana</option>
+                <option value="SV-SM">San Miguel</option>
+                <option value="SV-SO">Sonsonate</option>
+                <option value="SV-SS">San Salvador</option>
+                <option value="SV-SV">San Vicente</option>
+                <option value="SV-UN">La Unión</option>
+                <option value="SV-US">Usulután</option></select
+              ><span
+                class="select2 select2-container select2-container--default"
+                dir="ltr"
+                style="width: 100%"
+                ><span class="selection"
+                  ><span
+                    class="select2-selection select2-selection--single"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    tabindex="0"
+                    aria-label="Departamento"
+                    role="combobox"
+                    ><span
+                      class="select2-selection__rendered"
+                      id="select2-billing_state-container"
+                      role="textbox"
+                      aria-readonly="true"
+                      title="Santa Ana"
+                      >Santa Ana</span
+                    ><span class="select2-selection__arrow" role="presentation"
+                      ><b role="presentation"></b></span></span></span
+                ><span class="dropdown-wrapper" aria-hidden="true"></span></span
+            ></span>
+          </p>
+          <p
+            class="form-row form-row-wide validate-required validate-phone"
+            id="billing_phone_field"
+            data-priority="100"
+          >
+            <label for="billing_phone" class=""
+              >Teléfono&nbsp;<abbr class="required" title="obligatorio"
+                >*</abbr
+              ></label
+            ><span class="woocommerce-input-wrapper"
+              ><input
+                type="tel"
+                class="input-text"
+                name="billing_phone"
+                id="billing_phone"
+                placeholder=""
+                value="63070498"
+                autocomplete="tel"
+            /></span>
+          </p>
+          <p
+            class="form-row form-row-wide validate-required validate-email"
+            id="billing_email_field"
+            data-priority="110"
+          >
+            <label for="billing_email" class=""
+              >Dirección de correo electrónico&nbsp;<abbr
+                class="required"
+                title="obligatorio"
+                >*</abbr
+              ></label
+            ><span class="woocommerce-input-wrapper"
+              ><input
+                type="email"
+                class="input-text"
+                name="billing_email"
+                id="billing_email"
+                placeholder=""
+                value="ruben.alekey@gmail.com"
+                autocomplete="email username"
+            /></span>
+          </p>
+          <p
+            class="form-row form-row-wide validate-required"
+            id="billing_dui_field"
+            data-priority=""
+          >
+            <label for="billing_dui" class=""
+              >DUI&nbsp;<abbr class="required" title="obligatorio"
+                >*</abbr
+              ></label
+            ><span class="woocommerce-input-wrapper"
+              ><input
+                type="text"
+                class="input-text"
+                name="billing_dui"
+                id="billing_dui"
+                placeholder="Ingresa tu número de DUI"
+                value="06164953-2"
+            /></span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div class="woocommerce-shipping-fields"></div>
+      <div class="woocommerce-additional-fields">
+        <h3>Información adicional</h3>
+
+        <div class="woocommerce-additional-fields__field-wrapper"></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 id="order_review_heading">Tu pedido</h3>
+
+  <div id="order_review" class="woocommerce-checkout-review-order">
+    <table class="shop_table woocommerce-checkout-review-order-table">
+      <thead>
+        <tr>
+          <th class="product-name">Producto</th>
+          <th class="product-total">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cart_item">
+          <td class="product-name">
+            Obsidiana 1L&nbsp;
+            <strong class="product-quantity">×&nbsp;1</strong>
+          </td>
+          <td class="product-total">
+            <span class="woocommerce-Price-amount amount"
+              ><bdi
+                ><span class="woocommerce-Price-currencySymbol">$</span
+                >70.00</bdi
+              ></span
+            >
+          </td>
+        </tr>
+        <tr class="cart_item">
+          <td class="product-name">
+            Ron Cihuatán Jade&nbsp;
+            <strong class="product-quantity">×&nbsp;1</strong>
+          </td>
+          <td class="product-total">
+            <span class="woocommerce-Price-amount amount"
+              ><bdi
+                ><span class="woocommerce-Price-currencySymbol">$</span
+                >14.99</bdi
+              ></span
+            >
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="cart-subtotal">
+          <th>Subtotal</th>
+          <td>
+            <span class="woocommerce-Price-amount amount"
+              ><bdi
+                ><span class="woocommerce-Price-currencySymbol">$</span
+                >84.99</bdi
+              ></span
+            >
+          </td>
+        </tr>
+
+        <tr class="order-total">
+          <th>Total</th>
+          <td>
+            <strong
+              ><span class="woocommerce-Price-amount amount"
+                ><bdi
+                  ><span class="woocommerce-Price-currencySymbol">$</span
+                  >84.99</bdi
+                ></span
+              ></strong
+            >
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div id="payment" class="woocommerce-checkout-payment">
+      <ul class="wc_payment_methods payment_methods methods">
+        <li class="wc_payment_method payment_method_cod">
+          <input
+            id="payment_method_cod"
+            type="radio"
+            class="input-radio"
+            name="payment_method"
+            value="cod"
+            checked="checked"
+            data-order_button_text=""
+          />
+
+          <label for="payment_method_cod"> Pago en efectivo </label>
+          <div class="payment_box payment_method_cod">
+            <p>Paga en efectivo en el momento de recoger.</p>
+          </div>
+        </li>
+        <li class="wc_payment_method payment_method_wompi_payment">
+          <input
+            id="payment_method_wompi_payment"
+            type="radio"
+            class="input-radio"
+            name="payment_method"
+            value="wompi_payment"
+            data-order_button_text=""
+          />
+
+          <label for="payment_method_wompi_payment">
+            Tarjeta de crédito
+            <img
+              src="http://192.168.100.4:5551/wp-content/plugins/woocommerce/../wompi-el-salvador/assets/images/wompi.png"
+              alt="Tarjeta de crédito"
+            />
+          </label>
+          <div
+            class="payment_box payment_method_wompi_payment"
+            style="display: none"
+          >
+            <p>Pague con seguridad usando su tarjeta de crédito.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="form-row place-order">
+        <noscript>
+          Debido a que tu navegador no es compatible con JavaScript o lo tiene
+          desactivado, por favor, asegúrate de hacer clic en el botón
+          <em>Actualizar totales</em> antes de realizar tu pedido. De no
+          hacerlo, se te podría cobrar más de la cantidad indicada arriba.
+          <br /><button
+            type="submit"
+            class="button alt wp-element-button"
+            name="woocommerce_checkout_update_totals"
+            value="Actualizar totales"
+          >
+            Actualizar totales
+          </button>
+        </noscript>
+
+        <div class="woocommerce-terms-and-conditions-wrapper">
+          <div class="woocommerce-privacy-policy-text">
+            <p>
+              Tus datos personales se utilizarán para procesar tu pedido,
+              mejorar tu experiencia en esta web y otros propósitos descritos en
+              nuestra
+              <a
+                href="http://192.168.100.4:5551/?page_id=3"
+                class="woocommerce-privacy-policy-link"
+                target="_blank"
+                >política de privacidad</a
+              >.
+            </p>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="button alt wp-element-button"
+          name="woocommerce_checkout_place_order"
+          id="place_order"
+          value="Realizar el pedido"
+          data-value="Realizar el pedido"
+        >
+          Realizar el pedido
+        </button>
+
+        <input
+          type="hidden"
+          id="woocommerce-process-checkout-nonce"
+          name="woocommerce-process-checkout-nonce"
+          value="837645bdba"
+        /><input
+          type="hidden"
+          name="_wp_http_referer"
+          value="/?wc-ajax=update_order_review"
+        />
+      </div>
+    </div>
+  </div>
+</form>
