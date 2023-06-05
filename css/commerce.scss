@@ -109,3 +109,16 @@
 .woocommerce-additional-fields h3 {
   display: none;
 }
+
+.billing-type {
+  border: solid 1px;
+  border-radius: 5px;
+  border-color: #DDDDDA;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  
+
+  label {
+    display: block !important;
+    margin: 10px;
+  }
+}

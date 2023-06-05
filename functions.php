@@ -27,30 +27,27 @@ function checkout_override($fields)
         'type'        => 'text',
         'class'       => array( 'form-row-wide' ),
         'label'       => __('Documento', 'woocommerce'),
-        'placeholder' => __('Ingresa tu número de documento de identidad', 'woocommerce'),
+        'required'    => true,
+        'clear'       => true,
+    );
+
+    $fields['billing']['employee_code'] = array(
+        'type'        => 'text',
+        'class'       => array( 'form-row-wide' ),
+        'label'       => __('Código de empleado', 'woocommerce'),
+        'required'    => true,
+        'clear'       => true,
+    );
+
+    $fields['billing']['area'] = array(
+        'type'        => 'text',
+        'class'       => array( 'form-row-wide' ),
+        'label'       => __('Área de la empresa', 'woocommerce'),
         'required'    => true,
         'clear'       => true,
     );
 
     return $fields;
-}
-
-add_action('woocommerce_after_order_notes', 'custom_checkout_radio_buttons');
-function custom_checkout_radio_buttons($checkout)
-{
-    echo '<div id="custom_checkout_radio_buttons"><h2>' . __('Tipo de factura', 'woocommerce') . '</h2>';
-
-    woocommerce_form_field('radio_button_field', array(
-        'type' => 'radio',
-        'class' => array('form-row-wide', 'custom-radio-field'),
-        'options' => array(
-            'consumidor_final' => __('Consumidor final', 'woocommerce'),
-            'credito_fiscal' => __('Crédito fiscal', 'woocommerce')
-        ),
-        'default' => 'consumidor_final',
-    ), $checkout->get_value('radio_button_field'));
-
-    echo '</div>';
 }
 
 add_action('woocommerce_checkout_process', 'custom_checkout_radio_buttons_validation');
