@@ -33,17 +33,17 @@ function checkout_override($fields)
 
     $fields['billing']['employee_code'] = array(
         'type'        => 'text',
-        'class'       => array( 'form-row-wide' ),
+        'class'       => array( 'form-row-wide', 'empleado' ),
         'label'       => __('Código de empleado', 'woocommerce'),
-        'required'    => true,
+        'required'    => false,
         'clear'       => true,
     );
 
     $fields['billing']['area'] = array(
         'type'        => 'text',
-        'class'       => array( 'form-row-wide' ),
+        'class'       => array( 'form-row-wide', 'empleado' ),
         'label'       => __('Área de la empresa', 'woocommerce'),
-        'required'    => true,
+        'required'    => false,
         'clear'       => true,
     );
 
@@ -53,16 +53,32 @@ function checkout_override($fields)
 add_action('woocommerce_checkout_process', 'custom_checkout_radio_buttons_validation');
 function custom_checkout_radio_buttons_validation()
 {
-    if (empty($_POST['radio_button_field'])) {
+    if (empty($_POST['bill_type'])) {
         wc_add_notice(__('Por favor, selecciona una opción.', 'woocommerce'), 'error');
+    }
+
+    if ($_POST['payment_method'] == 'descuento_plania_gateway') {
+        if ($_POST['bill_type'] != 'venta_empleados') {
+            wc_add_notice(__('El descuento en planilla soló está disponible para empleados', 'woocommerce'), 'error');
+        } else {
+            if (empty($_POST['employee_code'])) {
+                wc_add_notice(__('El código de empleado es requerido para descuento en planilla', 'woocommerce'), 'error');
+            }
+            if (empty($_POST['area'])) {
+                wc_add_notice(__('Por favor ingrese su área de trabajo.', 'woocommerce'), 'error');
+            }
+            if (empty($_POST['billing_company'])) {
+                wc_add_notice(__('Por favor ingrese la empresa para la cual trabaja.', 'woocommerce'), 'error');
+            }
+        }
     }
 }
 
 add_action('woocommerce_checkout_update_order_meta', 'custom_checkout_radio_buttons_update_order_meta');
 function custom_checkout_radio_buttons_update_order_meta($order_id)
 {
-    if ($_POST['radio_button_field']) {
-        update_post_meta($order_id, 'bill_type', sanitize_text_field($_POST['radio_button_field']));
+    if ($_POST['bill_type']) {
+        update_post_meta($order_id, 'bill_type', sanitize_text_field($_POST['bill_type']));
     }
 }
 // }}}

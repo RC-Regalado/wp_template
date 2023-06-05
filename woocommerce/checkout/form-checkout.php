@@ -45,17 +45,17 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 				<p class="form-row form-row-wide billing-type" id="radio_button_field_field" data-priority="">
 					<span class="woocommerce-input-wrapper">
 						<label for="radio_button_field_consumidor_final" class="radio ">
-							<input onclick="change(this)" type="radio" class="input-radio " value="consumidor_final" name="radio_button_field" id="radio_button_field_consumidor_final" checked="checked">
+							<input onclick="change(this)" type="radio" class="input-radio " value="consumidor_final" name="bill_type" id="radio_button_field_consumidor_final" checked="checked">
 							Consumidor final
 						</label>
 
 						<label for="radio_button_field_credito_fiscal" class="radio ">
-							<input onclick="change(this)" type="radio" class="input-radio " value="credito_fiscal" name="radio_button_field" id="radio_button_field_credito_fiscal">
+							<input onclick="change(this)" type="radio" class="input-radio " value="credito_fiscal" name="bill_type" id="radio_button_field_credito_fiscal">
 							Crédito fiscal
 						</label>
 
 						<label for="radio_button_field_venta_empleados" class="radio ">
-							<input onclick="change(this)" type="radio" class="input-radio " value="venta_empleados" name="radio_button_field" id="radio_button_field_venta_empleados">
+							<input onclick="change(this)" type="radio" class="input-radio " value="venta_empleados" name="bill_type" id="radio_button_field_venta_empleados">
 							Venta empleados
 						</label>
 					</span>
@@ -68,7 +68,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 	<?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
 
-	<h3 id="order_review_heading"><?php esc_html_e('Your order', 'woocommerce'); ?></h3>
+	<h3 style="margin-top: 0.5em;" id="order_review_heading"><?php esc_html_e('Your order', 'woocommerce'); ?></h3>
 
 	<?php do_action('woocommerce_checkout_before_order_review'); ?>
 
@@ -82,44 +82,4 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 <?php do_action('woocommerce_after_checkout_form', $checkout); ?>
 
-<script>
-	function change(evt) {
-		switch (evt.value) {
-			case 'credito_fiscal':
-				credito();
-				break;
-			case 'consumidor_final':
-				reset();
-				break;
-			case 'venta_empleados':
-				break;
-		}
-	}
-
-	function setDoc(data) {
-		el = document.querySelector("#billing_dui_field label");
-		console.debug(el);
-		el.textContent = data;
-	}
-
-	function setName(data) {
-		el = document.querySelector("#billing_first_name_field label");
-		console.debug(el);
-		el.textContent = data;
-	}
-
-	function reset() {
-		setName("Nombre");
-		setDoc("Documento");
-	}
-
-	function credito() {
-		setDoc("Número de registro (NRC)");
-		setName("Nombre Contribuyente");
-	}
-
-	// Esta seccion solo funciona con el plugin de wooboost
-	function empleados() {
-		
-	}
-</script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri().'/js/checkout.js'; ?>"></script>
