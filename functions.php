@@ -25,7 +25,7 @@ function checkout_override($fields)
 
     $fields['billing']['billing_dui'] = array(
         'type'        => 'text',
-        'class'       => array( 'form-row-wide' ),
+        'class'       => array('form-row-wide'),
         'label'       => __('Documento', 'woocommerce'),
         'required'    => true,
         'clear'       => true,
@@ -33,7 +33,7 @@ function checkout_override($fields)
 
     $fields['billing']['employee_code'] = array(
         'type'        => 'text',
-        'class'       => array( 'form-row-wide', 'empleado' ),
+        'class'       => array('form-row-wide', 'empleado'),
         'label'       => __('Código de empleado', 'woocommerce'),
         'required'    => false,
         'clear'       => true,
@@ -41,7 +41,7 @@ function checkout_override($fields)
 
     $fields['billing']['area'] = array(
         'type'        => 'text',
-        'class'       => array( 'form-row-wide', 'empleado' ),
+        'class'       => array('form-row-wide', 'empleado'),
         'label'       => __('Área de la empresa', 'woocommerce'),
         'required'    => false,
         'clear'       => true,
@@ -70,6 +70,12 @@ function custom_checkout_radio_buttons_validation()
             if (empty($_POST['billing_company'])) {
                 wc_add_notice(__('Por favor ingrese la empresa para la cual trabaja.', 'woocommerce'), 'error');
             }
+        }
+    }
+
+    if ($_POST['bill_type'] == 'credito_fiscal') {
+        if (empty($_POST['billing_company'])) {
+            wc_add_notice(__('Por favor ingrese el nombre de la empresa.', 'woocommerce'), 'error');
         }
     }
 }

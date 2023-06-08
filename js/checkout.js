@@ -1,14 +1,8 @@
 function change(evt) {
-  document.getElementById("employee_code_field").style.display = "none";
-  document.getElementById("area_field").style.display = "none";
-  document.querySelector("#billing_company_field label").textContent =
-    "Nombre de la empresa (opcional)";
+  reset();
   switch (evt.value) {
     case "credito_fiscal":
       credito();
-      break;
-    case "consumidor_final":
-      reset();
       break;
     case "venta_empleados":
       empleados();
@@ -29,11 +23,20 @@ function setName(data) {
 function reset() {
   setName("Nombre");
   setDoc("Documento");
+
+  document.getElementById("employee_code_field").style.display = "none";
+  document.getElementById("area_field").style.display = "none";
+  document.getElementById("item_descuento_plania_gateway").style.display = "none";
+
+  document.querySelector("#billing_company_field label").textContent =
+    "Nombre de la empresa (opcional)";
 }
 
 function credito() {
   setDoc("Número de registro (NRC)");
   setName("Nombre Contribuyente");
+  document.querySelector("#billing_company_field label").textContent =
+    "Nombre de la empresa (requerido)";
 }
 
 // Esta seccion solo funciona con el plugin de wooboost
@@ -41,6 +44,7 @@ function empleados() {
   reset();
   document.getElementById("employee_code_field").style.display = "block";
   document.getElementById("area_field").style.display = "block";
+  document.getElementById("item_descuento_plania_gateway").style.display = "block";
 
   document.querySelector("#employee_code_field label").textContent =
     "Código de empleado (requerido)";

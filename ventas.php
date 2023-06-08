@@ -27,7 +27,7 @@ global $wp;
                     )
                 ),
                 'numberposts' => -1,
-                'orderby' => 'id'
+                'orderby' => 'ID'
     ));
     foreach ($products as $product_post){
         setup_postdata($product_post);

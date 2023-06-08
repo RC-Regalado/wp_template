@@ -86,6 +86,7 @@
 
     .image-container img {
       height: 300px;
+      width: 300px;
     }
 
     .bg-image {
@@ -124,5 +125,9 @@
 }
 
 .empleado {
+  display: none;
+}
+
+.hide-gateway {
   display: none;
 }
