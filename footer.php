@@ -3,18 +3,18 @@
     <div class="footer-column">
       <h3>Compañía</h3>
       <ul>
-        <li><a href="#">Sobre The Rum Shop</a></li>
-        <li><a href="#">Tienda</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="/nosotros">Sobre The Rum Shop</a></li>
+        <li><a href="/">Tienda</a></li>
+        <li><a href="/contact">Contacto</a></li>
       </ul>
     </div>
     <div class="footer-column">
       <h3>Soporte</h3>
       <ul>
-        <li><a href="#">Contactos</a></li>
-        <li><a href="#">Preguntas Frecuentes</a></li>
-        <li><a href="#">Términos y Condiciones</a></li>
-        <li><a href="#">Políticas de privacidad</a></li>
+        <li><a href="/contacts">Contactos</a></li>
+        <li><a href="/faqs">Preguntas Frecuentes</a></li>
+        <li><a href="/terms-conditions">Términos y Condiciones</a></li>
+        <li><a href="/politica-privacidad">Políticas de privacidad</a></li>
       </ul>
     </div>
     <div class="footer-column">

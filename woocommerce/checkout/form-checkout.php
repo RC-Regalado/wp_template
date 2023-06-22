@@ -36,30 +36,32 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 		<?php do_action('woocommerce_checkout_before_customer_details'); ?>
 
-		<div class="col2-set" id="customer_details">
-			<div class="col-1">
-				<?php do_action('woocommerce_checkout_billing'); ?>
-			</div>
-			<div class="col-2">
-				<h4>Tipo de factura</h4>
-				<p class="form-row form-row-wide billing-type" id="radio_button_field_field" data-priority="">
-					<span class="woocommerce-input-wrapper">
-						<label for="radio_button_field_consumidor_final" class="radio ">
-							<input onclick="change(this)" type="radio" class="input-radio " value="consumidor_final" name="bill_type" id="radio_button_field_consumidor_final" checked="checked">
-							Consumidor final
-						</label>
+		<div class="container" id="customer_details">
+			<div class="row">
+				<div class="col-lg-6 order-lg-2">
+					<h4>Tipo de factura</h4>
+					<p class="form-row form-row-wide billing-type" id="radio_button_field_field" data-priority="">
+						<span class="woocommerce-input-wrapper">
+							<label for="radio_button_field_consumidor_final" class="radio ">
+								<input onclick="change(this)" type="radio" class="input-radio " value="consumidor_final" name="bill_type" id="radio_button_field_consumidor_final" checked="checked">
+								Consumidor final
+							</label>
 
-						<label for="radio_button_field_credito_fiscal" class="radio ">
-							<input onclick="change(this)" type="radio" class="input-radio " value="credito_fiscal" name="bill_type" id="radio_button_field_credito_fiscal">
-							Crédito fiscal
-						</label>
+							<label for="radio_button_field_credito_fiscal" class="radio ">
+								<input onclick="change(this)" type="radio" class="input-radio " value="credito_fiscal" name="bill_type" id="radio_button_field_credito_fiscal">
+								Crédito fiscal
+							</label>
 
-						<label for="radio_button_field_venta_empleados" class="radio ">
-							<input onclick="change(this)" type="radio" class="input-radio " value="venta_empleados" name="bill_type" id="radio_button_field_venta_empleados">
-							Venta empleados
-						</label>
-					</span>
-				</p>
+							<label for="radio_button_field_venta_empleados" class="radio ">
+								<input onclick="change(this)" type="radio" class="input-radio " value="venta_empleados" name="bill_type" id="radio_button_field_venta_empleados">
+								Venta empleados
+							</label>
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-6 order-lg-1">
+					<?php do_action('woocommerce_checkout_billing'); ?>
+				</div>
 			</div>
 		</div>
 
@@ -82,4 +84,4 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 <?php do_action('woocommerce_after_checkout_form', $checkout); ?>
 
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri().'/js/checkout.js'; ?>"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/js/checkout.js'; ?>"></script>

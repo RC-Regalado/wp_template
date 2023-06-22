@@ -13,19 +13,6 @@ global $wp;
     <?php
     $products = get_posts(array(
                 'post_type' => 'product',
-                'meta_query' => array(
-                    'relation' => 'OR',
-                    array(
-                        'key' => '_assigned_page',
-                        'value' => $wp->request,
-                        'compare' => '=',
-                    ),
-                    array(
-                        'key' => '_assigned_page',
-                        'value' => 'all',
-                        'compare' => '=',
-                    )
-                ),
                 'numberposts' => -1,
                 'orderby' => 'ID'
     ));
