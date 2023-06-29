@@ -131,3 +131,25 @@
 .hide-gateway {
   display: none;
 }
+
+.thankyou-note {
+  padding: 15px 0;
+  background-color: #DEDEDE;
+  border-radius: 10px;
+  margin-bottom: 15px;
+
+  p {
+    margin: 10px;
+  }
+}
+
+.payment-note {
+  background-color: #dfdcde;
+  padding: 5px 0;
+  margin-bottom: 15px;
+
+  p {
+    margin: 10px;
+  }
+}
+

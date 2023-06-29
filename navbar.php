@@ -52,7 +52,7 @@
 
   <nav class="navbar">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row" style="width: 100%;">
         <a class="navbar-brand col" href="/">
           <img src="<?php echo get_template_directory_uri() . '/logo.png' ?>" />
         </a>

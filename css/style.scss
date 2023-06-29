@@ -396,19 +396,9 @@ textarea {
 /* }}} */
 
 /* Cart {{{ */
-@media (min-width: 768px) {
-  .woocommerce-cart .woocommerce .woocommerce-cart-form {
-    float: left;
-    width: 60%;
-  }
-
-  .woocommerce-cart .woocommerce .cart-collaterals {
-    float: right;
-    width: 35%;
-  }
-
-  .cart-collaterals .cart_totals {
-    width: 100% !important;
+@media (max-width: 768px) {
+  .total-note {
+    display: none;
   }
 }
 
